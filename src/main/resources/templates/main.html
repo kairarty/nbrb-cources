@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rest-сервис получения курса валют НБРБ</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="error" th:if="${shortNames} == null">Ошибка подключения к серверу! Проверьте сетевое соединение!</div>
+
+<div th:if="${shortNames} != null">
+    <form>
+        <select id="selCur" name="currName" required>
+            <option selected disabled value="">Выберите желаемую валюту</option>
+            <option th:each="name : ${shortNames}" th:value="${name}" th:text="${name}"></option>
+        </select>
+        <p id="dateP">Выберите желаемую дату:</p>
+        <input id="dateInp" type="date" name="date" required><br>
+        <input type="button" value="Найти" onclick="getForm(this.form)">
+    </form>
+
+<p id="emptyText" style="color: red"></p>
+<p id="curse"></p>
+<br>
+<br>
+<h2 id="currDate">Список курсов валют на [[${date}]]</h2>
+<p th:each="cur : ${curses}" th:text="${cur.Cur_Abbreviation + ' ' + cur.Cur_OfficialRate + ' за ' + cur.Cur_Scale + ' ' +
+cur.Cur_Name}"></p>
+</div>
+</body>
+</html>

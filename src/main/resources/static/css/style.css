@@ -1,0 +1,12 @@
+#dateInp, #dateP {
+    margin-bottom: 10px;
+}
+
+#dateP {
+    margin-top: 5px;
+}
+
+#error {
+    color: red;
+    font-size: 14px;
+}
