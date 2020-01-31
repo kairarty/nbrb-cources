@@ -27,8 +27,7 @@
 <br>
 <br>
 <h2 id="currDate">Список курсов валют на [[${date}]]</h2>
-<p th:each="cur : ${curses}" th:text="${cur.Cur_Abbreviation + ' ' + cur.Cur_OfficialRate + ' за ' + cur.Cur_Scale + ' ' +
-cur.Cur_Name}"></p>
+<p th:each="cur : ${curses}" th:text="${cur.abbreviation + ' ' + cur.officialRate + ' за ' + cur.scale + ' ' + cur.name}"></p>
 </div>
 </body>
 </html>

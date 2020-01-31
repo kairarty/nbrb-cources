@@ -1,17 +1,23 @@
 package programm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency {   // поля модели для json-объекта должны быть с ними одноимённы!
-    // над полем можно указанть аннотацию @JsonProperty("jsonParameterName"), если не хочешь, чтобы имя поля совпадала с именем ключа json
-    int Cur_ID;
-    String Date;
-    String Cur_Abbreviation;
-    int Cur_Scale;
-    String Cur_Name;
-    double Cur_OfficialRate;
+    @JsonProperty("Date")   // если не хочешь, чтобы имя поля совпадала с именем ключа json. Имена полей с больших букв не работают
+    String date;
+    @JsonProperty("Cur_Abbreviation")
+    String abbreviation;
+    @JsonProperty("Cur_Scale")
+    int scale;
+    @JsonProperty("Cur_Name")
+    String name;
+    @JsonProperty("Cur_OfficialRate")
+    double officialRate;
 }
