@@ -9,8 +9,8 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Currency {   // поля модели для json-объекта должны быть с ними одноимённы!
-    @JsonProperty("Date")   // если не хочешь, чтобы имя поля совпадала с именем ключа json. Имена полей с больших букв не работают
+public class Currency {
+    @JsonProperty("Date")
     String date;
     @JsonProperty("Cur_Abbreviation")
     String abbreviation;
