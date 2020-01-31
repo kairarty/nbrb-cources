@@ -19,7 +19,7 @@ public class MainController {
     @GetMapping("/")
     public String main(Model model) {
         RestTemplate restTemplate = new RestTemplate();
-        String allCurrencyString = "http://nbrb.by/API/ExRates/Rates?Periodicity=0";    // адрес возвращает строку-массив json-объектов
+        String allCurrencyString = "http://nbrb.by/API/ExRates/Rates?Periodicity=0";
 
         ResponseEntity<Currency[]> response = restTemplate.getForEntity(allCurrencyString, Currency[].class);
         Currency[] currencies = response.getBody();
